@@ -21,29 +21,33 @@ read -e Password
 # Enable sources, add PPAs and update sources: 
 sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
 
-#sudo add-apt-repository ppa:tiheum/equinox
 
+#sudo add-apt-repository ppa:tiheum/equinox
 sudo apt-get update
 sudo apt-get upgrade
 
 #Create Directory for mounting
 sudo mkdir /media/DataBank
 
+
 # Adding software:
 sudo apt-get install -y vlc
+
 
 # Create user and grant sudo password.
 sudo useradd middlepepper -m -G users
 sudo passwd middlepepper
 
+
 # grabs the ids for the user account created
 #middlepeppers id = 1001
-
 id -g middlepepper
 id -u middlepepper
 
+
 # Add auto mount to boot
 sudo nano /etc/fstab
+
 
 #/dev/sda1 /media/DataBank auto nofail,uid=1001,gid=1001,noatime 0 0
 
@@ -51,8 +55,10 @@ sudo nano /etc/fstab
 # install the samba package
 sudo apt-get install samba samba-common-bin
 
+
 # Back up default Conf
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
+
 
 #Add the following
 sudo nano /etc/samba/smb.conf
@@ -69,6 +75,7 @@ sudo nano /etc/samba/smb.conf
 #Restart Samba to apply changes.
 sudo /etc/init.d/samba restart
 
+
 #Connect user to samba
 sudo smbpasswd -a middlepepper
 =========
@@ -78,25 +85,34 @@ sudo apt-get install transmission-daemon
 # Install Transmission
 sudo mkdir -p /media/DataBank/torrent-inprogress
 sudo mkdir -p /media/DataBank/torrent-complete
+
+
 # Create Folders
 sudo nano /etc/transmission-daemon/settings.json
+
+
 # Edit Settings
+"download-dir": "/media/DataBank/torrent-complete",
 "incomplete-dir": "/media/DataBank/torrent-inprogress",
 "incomplete-dir-enabled": true,
-"download-dir": "/media/DataBank/torrent_complete",
 "rpc-username": "middlepepper",
 "rpc-password": "Your_Password",
 "rpc-whitelist": "192.168.*.*",
 sudo service transmission-daemon reload
+
+
 # Restart tranmission
 sudo nano /etc/init.d/transmission-daemon
+
+
 # Change user
 USER=middlepepper
 
+# Grant access to new user account
 sudo chown -R middlepepper:middlepepper /etc/transmission-daemon
 sudo chown -R middlepepper:middlepepper /etc/init.d/transmission-daemon
 sudo chown -R middlepepper:middlepepper /var/lib/transmission-daemon
-# Grant access to new user account
+
 
 sudo nano /etc/systemd/system/multi-user.target.wants/transmission-daemon.service
 sudo systemctl daemon-reload
