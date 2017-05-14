@@ -1,0 +1,41 @@
+============
+filebot -script fn:amc "K:\Tv Shows" --output "H:\Renamed" --log-file amc.log --action duplicate --conflict override -non-strict --def artwork=n subtitles=en "seriesFormat={Plex}" "movieFormat={Plex}" clean=y
+
+============
+
+Fetch Artwork and Nfo for Movies
+
+//Rips Poseter.jpg, fanart.jpg, banner.jpg, folder.jpg and Logo.jpg. generates .nfo
+
+filebot -script fn:artwork.tmdb D:\Movies -non-strict
+
+============
+
+Fetch Artwork and Nfo for TV Shows
+
+//Rips Poseter.jpg, fanart.jpg, banner.jpg, folder.jpg and Logo.jpg. generates .nfo
+
+filebot -script fn:artwork.tvdb K:\TvShows -non-strict
+
+============
+
+Fetch Artwork and Nfo for Anime
+
+//Rips Poseter.jpg, fanart.jpg, banner.jpg, folder.jpg and Logo.jpg. generates .nfo
+
+filebot -script fn:artwork.tvdb "G:\Archive01\Anime" -non-strict
+
+============
+
+How to include Poster in show For local pull.
+============
+So what can you add to TV show sections?
+
+    Show posters: show.jpg
+    Show banners: banner.jpg
+    Show background art: art.jpg or background.jpg
+    Show theme music: theme.mp3
+    Season posters: seasonX.jpg
+    Season banners: seasonX-banner.jpg
+    Episode thumbs: match the filename of the episode file
+===========
