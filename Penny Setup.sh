@@ -92,8 +92,8 @@ sudo nano /etc/transmission-daemon/settings.json
 
 
 # Edit Settings
-"download-dir": "/media/DataBank/torrent-complete",
-"incomplete-dir": "/media/DataBank/torrent-inprogress",
+"download-dir": "/home/middlepepper/torrent-complete",
+"incomplete-dir": "/home/middlepepper/torrent-inprogress",
 "incomplete-dir-enabled": true,
 "rpc-username": "middlepepper",
 "rpc-password": "Your_Password",
@@ -113,9 +113,9 @@ sudo chown -R middlepepper:middlepepper /etc/transmission-daemon
 sudo chown -R middlepepper:middlepepper /etc/init.d/transmission-daemon
 sudo chown -R middlepepper:middlepepper /var/lib/transmission-daemon
 
-
 sudo nano /etc/systemd/system/multi-user.target.wants/transmission-daemon.service
 sudo systemctl daemon-reload
+
 sudo mkdir -p /home/middlepepper/.config/transmission-daemon/
 sudo ln -s /etc/transmission-daemon/settings.json /home/middlepepper/.config/transmission-daemon/
 sudo chown -R middlepepper:middlepepper /home/middlepepper/.config/transmission-daemon/
