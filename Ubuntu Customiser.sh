@@ -10,11 +10,13 @@ sudo apt-get -y --force-yes upgrade
 
 # install apps
 sudo apt-get -y install \
-    qemu-kvm libvirt-bin bridge-utils virt-manager \
-    steam  wine \
+    steam wine \
+    Mkchromecast python-pip python-flask python-psutil python-setuptools python-mutagen python-gi \
+    vorbis-tools sox lame flac faac opus-tools \
     filezilla neofetch \
-    p7zip p7zip-full p7zip-rar
-
+    p7zip p7zip-full p7zip-rar\
+    qemu-kvm libvirt-bin bridge-utils virt-manager
+    
 # install Template
 #sudo curl -sS https://getcomposer.org/installer | php
 #sudo mv composer.phar /usr/local/bin/composer
