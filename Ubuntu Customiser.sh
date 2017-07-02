@@ -22,6 +22,13 @@ sudo apt-get -y install \
 #sudo mv composer.phar /usr/local/bin/composer
 #sudo chmod 755 /usr/local/bin/composer
 
+# hBlock Host file update 
+# https://github.com/zant95/hBlock
+
+curl 'https://raw.githubusercontent.com/zant95/hblock/master/hblock' -o /tmp/hblock && \
+  echo 'dd02198ad592fbd9ac26372b24e7239cc8e3735eb754a3689cb514de3663651c  /tmp/hblock' | shasum -c && \
+  sh /tmp/hblock
+
 # Virtualbox
 sudo adduser x vboxusers
 
