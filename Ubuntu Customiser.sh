@@ -11,8 +11,6 @@ sudo apt-get -y --force-yes upgrade
 # install apps
 sudo apt-get -y install \
     steam wine \
-    Mkchromecast python-pip python-flask python-psutil python-setuptools python-mutagen python-gi \
-    vorbis-tools sox lame flac faac opus-tools \
     filezilla neofetch \
     p7zip p7zip-full p7zip-rar\
     qemu-kvm libvirt-bin bridge-utils virt-manager
